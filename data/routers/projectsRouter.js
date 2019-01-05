@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
   })
 })
 router.post('/', (req, res) => {
- const { name, description, completed } = req.params
+ const { name, description, completed } = req.body
   if (name, description, completed) {
    projectsDB
     .insert({name, description, completed})
@@ -48,15 +48,33 @@ router.post('/', (req, res) => {
   }
 })
 router.put('/:id', (req, res) => {
+ const { id } = req.params
+ const {name, description, completed} = req.body
+ if (name, description, completed && id) {
+  projectsDB
+   .update(id, req.body)
+   .then(() => {
+    res
+     .json({message: "Project has been updated with new data."})
+   })
+ }
+ else {
+  res
+   .catch(() => {
+    res
+     .status(500)
+     .json({error: "There was an error updating projects."})
+   })
+ }
 
 })
 router.delete('/:id', (req, res) => {
  const { id } = req.params
  projectsDB
   .remove(id)
-  .then(project => {
+  .then(() => {
    res
-    .json(project)
+    .json({message: "Project was removed from database."})
   })
   .catch(() => {
    res
