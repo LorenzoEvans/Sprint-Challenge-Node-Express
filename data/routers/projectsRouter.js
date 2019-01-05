@@ -51,6 +51,18 @@ router.put('/:id', (req, res) => {
 
 })
 router.delete('/:id', (req, res) => {
+ const { id } = req.params
+ projectsDB
+  .remove(id)
+  .then(project => {
+   res
+    .json(project)
+  })
+  .catch(() => {
+   res
+    .status(500)
+    .json({error: "There was an error removing project from database."})
+  })
 
 })
 
