@@ -103,23 +103,19 @@ router.post('/', (req, res) => {
  // }
 // Confirmed unfinished.
 router.put('/:id', (req, res) => {
- const { project_id } = req.params
- const { description, notes, completed} = req.body
- if (description, notes, completed, project_id){
-  projectDB
-   .get(project_id)
-   .then(() => {
+ const { id } = req.params
+ const newAction = req.body
+ if (newAction.description, newAction.notes, newAction.project_id){
     actionsDB
-     .update({description, notes, completed})
+     .update(id, newAction)
      .then(() => {
       res
-       .json({message: "Action was properly updated."})
+       .json({action: newAction, message: "Action was properly updated."})
      })
      .catch(() => {
        res
         .status(400)
         .json({message: "There was an error with the request."})
-     })
    })
    .catch(() => {
     res
