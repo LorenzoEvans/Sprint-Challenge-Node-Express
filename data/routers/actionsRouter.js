@@ -56,52 +56,7 @@ router.post('/', (req, res) => {
    .json({message: "Action was not added to to DB."})
  }
 })
-// router.post('/', (req, res) => {
-//  const prjActn = req.body
-//  if (prjActn.description && prjActn.notes && prjActn.project_id) { 
-//   actionsDB
-//    .insert(prjActn)
-//    .then(project_id => {
-//     actionsDB
-//      .insert(project_id.id)
-//      .then(newPrjActn => {
-//       res
-//        .json(newPrjActn)
-//      }).catch(() => {
-//     res
-//      .status(500)
-//      .json({error: "There was an error adding project to DB."})
-//    })
-//    })
-//    .catch(() => {
-//     res
-//      .status(500)
-//      .json({error: "There was an error adding project to DB."}) 
-//   })
-//  }  
-// })
- // }
- // if (description, notes, completed){
- //  actionsDB
- //   .geit(project_id)
- //   .then(() => {
- //    actionsDB
- //     .insert({description, notes, completed})
- //     .then(() => {
- //      res
- //       .json({message: "Action was added to project"})
- //     })
- //     .catch(() => {
- //      res
- //       .json({message: "There was an error adding project."})
- //     })
- //   })
- //   .catch(() => {
- //    res
- //     .json({error: "Error with posting actions."})
- //   })
- // }
-// Confirmed unfinished.
+
 router.put('/:id', (req, res) => {
  const { id } = req.params
  const newAction = req.body
