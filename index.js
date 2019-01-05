@@ -7,7 +7,7 @@ const actionsRouter = require("./data/routers/actionsRouter")
 const PORT = process.env.PORT || 3008
 server.use(
  helmet(),
- logger(),
+ logger('tiny'),
  express.json()
 )
 

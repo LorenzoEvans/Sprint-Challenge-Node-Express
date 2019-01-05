@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const actionsDB = require("../helpers/actionModel")
+const projectDB = require("../helpers/projectModel")
 
 router.get('/', (req, res) => {
  actionsDB
@@ -30,11 +31,35 @@ router.get('/:id', (req, res) => {
   })
 })
 router.post('/', (req, res) => {
- // const { }
-
+ const { project_id } = req.params
+ const { description, notes, completed} = req.body
+ if (description, notes, completed, project_id){
+  projectDB
+   .get(project_id)
+   .then(() => {
+    actionsDB
+     .insert({description, notes, completed})
+     .then(() => {
+      res
+       .json({message: "Action was added to project"})
+     })
+     .catch(() => {
+      res
+       .json({message: "There was an error adding project."})
+     })
+   })
+   .catch(() => {
+    res
+     .json({error: "Error with posting actions."})
+   })
+ }
 })
 router.put('/:id', (req, res) => {
-
+ const { project_id } = req.params
+ const { description, notes, completed} = req.body
+ if (description, notes, completed, project_id){
+  
+ }
 })
 router.delete('/:id', (req, res) => {
  const { id } = req.params
