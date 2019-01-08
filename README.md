@@ -26,13 +26,27 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+ Two parts of express that I learned about were:
+ Express Router: part of the functionality of the Express framework that allows for modularity
+ by separating out the routes and their desired functionality into separate components, in order to
+ keep codebases from getting too long/difficult to read.
+ Ports: One of the interesting things I learned was that you can actually set your port variable to
+ a default port of your choosing, and use the logical or operator with process.env.port to allow Node/Express apps to use the default port of the machine (environment) that they're running on/in.
+
 - [ ] Describe Middleware?
+ Middleware, which is effectively built-in or newly written code that extends the functionality
+ of a framework or library, from within the confines or context of the library, so that more
+ complex actions can be taken by the app, or even by the user.
 
 - [ ] Describe a Resource?
+ A resource is effectively and data, data objects, or combination of the two that can be interacted with
+ and subsequently manipulated via CRUD operations using Express and middleware.
 
 - [ ] What can the API return to help clients know if a request was successful?
-
+ The API can return a status code 200-202, if request was Ok, an object was created, or a request was accepted. In addition to this, the API can return a JSON object containing a message to let the user know the result of their request, if they're not familiar with HTTP status codes.
 - [ ] How can we partition our application into sub-applications?
+ You can break an application into sub applications, by using Express's built in router to modularize your end points, and use module.exports to section off your middleware, in addition to perhaps having your resources (database files) broken out into files according to the middleware and routers that will utilize it.
+
 
 ## Project Setup
 
